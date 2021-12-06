@@ -11,6 +11,7 @@
     public Transaction Transaction;
     public Store Store;
     public Transparency Transparency;
+    public User User;
     
     public PolenApi(string token)
     {
@@ -23,6 +24,7 @@
       Transaction = new Transaction(token);
       Store = new Store(token);
       Transparency = new Transparency(token);
+      User = new User(token);
     }
   }
 }
