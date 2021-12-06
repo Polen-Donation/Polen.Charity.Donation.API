@@ -10,6 +10,7 @@
     public NotifyDonation NotifyDonation;
     public Transaction Transaction;
     public Store Store;
+    public Transparency Transparency;
     
     public PolenApi(string token)
     {
@@ -21,6 +22,7 @@
       NotifyDonation = new NotifyDonation(token);
       Transaction = new Transaction(token);
       Store = new Store(token);
+      Transparency = new Transparency(token);
     }
   }
 }
