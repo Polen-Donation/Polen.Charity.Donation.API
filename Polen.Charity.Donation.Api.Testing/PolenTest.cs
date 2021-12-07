@@ -106,6 +106,52 @@ namespace Polen.Charity.Donation.Api.Testing
       Assert.IsAssignableFrom<string>(viewResult);
     }
     
+    //DirectDonation
+    
+    [Fact]
+    public async Task Post_create_direct_donation_success()
+    {
+      DirectDonationModel directDonationModel = new DirectDonationModel();
+      
+      Causes causes = new Causes();
+      causes.Donation = 1;
+      causes.CauseId = "cufa";
+
+      Donor donor = new Donor();
+      donor.Document = "01685303250";
+      donor.Email = "jeovanearaujo@outlook.com";
+      donor.Gender = "male";
+      donor.Name = "Jeovane Araujo";
+      donor.Phone = "41998916810";
+      donor.BirthDate = "16/08/1995";
+      donor.Verified = false;
+      donor.Identifier = "01685303250";
+      donor.OptIn = false;
+
+      BankSlipData bankSlipData = new BankSlipData();
+      bankSlipData.DueDate = 1;
+      bankSlipData.PaymentSystem = 5;
+
+      directDonationModel.Address = null;
+      directDonationModel.Causes = new Causes[] {causes};
+      directDonationModel.PaymentMethod = 2;
+      directDonationModel.CreditCardData = null;
+      directDonationModel.Donor = donor;
+      directDonationModel.OrderId = "JEO12345678";
+      directDonationModel.StoreId = "30cc3743-a457-43ac-aa7c-a2bf7cdf674a";
+      directDonationModel.ChildStoreId = null;
+      directDonationModel.IsTest = true;
+      directDonationModel.CampaignId = null;
+      directDonationModel.BankFeeCovered = 0;
+      directDonationModel.HasMatchFunding = false;
+      directDonationModel.MatchingDonation = 0;
+      directDonationModel.BankSlipData = bankSlipData;
+      directDonationModel.Notes = "";
+      
+      var actionResult = await PolenApi.DirectDonation.CreateDirectDonation(directDonationModel);
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
     
   }
 }

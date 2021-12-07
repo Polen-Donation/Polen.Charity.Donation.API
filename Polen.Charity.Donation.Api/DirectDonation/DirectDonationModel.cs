@@ -51,7 +51,7 @@ namespace Polen.Charity.Donation.Api
   {
     public string StoreId { get; set; }
     public string ChildStoreId { get; set; }
-    public string IsTest { get; set; }
+    public bool IsTest { get; set; }
     public string CampaignId { get; set; }
     public int PaymentMethod { get; set; }
     public string OrderId { get; set; }
@@ -60,9 +60,9 @@ namespace Polen.Charity.Donation.Api
     public float MatchingDonation { get; set; }
     public string Notes { get; set; }
     public Donor Donor { get; set; }
-    public CreditCardData CreditCardData { get; set; }
-    public BankSlipData BankSlipData { get; set; }
-    public Address Address { get; set; }
+    public CreditCardData? CreditCardData { get; set; }
+    public BankSlipData? BankSlipData { get; set; }
+    public Address? Address { get; set; }
     public Causes[] Causes { get; set; }
   }
 }
