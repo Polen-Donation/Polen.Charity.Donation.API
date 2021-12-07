@@ -153,6 +153,16 @@ namespace Polen.Charity.Donation.Api.Testing
       Assert.IsAssignableFrom<string>(viewResult);
     }
     
+    //Finance
+    [Theory]
+    [InlineData("30cc3743-a457-43ac-aa7c-a2bf7cdf674a")]
+    public async Task Get_billing_success(string storeId)
+    {
+      var actionResult = await PolenApi.Finance.GetBilling(storeId);
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
+    
   }
 }
 
