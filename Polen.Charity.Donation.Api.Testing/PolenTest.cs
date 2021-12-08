@@ -231,6 +231,15 @@ namespace Polen.Charity.Donation.Api.Testing
       var viewResult = Assert.IsType<string>(actionResult);
       Assert.IsAssignableFrom<string>(viewResult);
     }
+
+    //Platform
+    [Fact]
+    public async Task Get_platform_success()
+    {
+      var actionResult = await PolenApi.Platform.GetPlatform();
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
   }
 }
 
