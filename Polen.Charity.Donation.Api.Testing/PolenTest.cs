@@ -163,6 +163,74 @@ namespace Polen.Charity.Donation.Api.Testing
       Assert.IsAssignableFrom<string>(viewResult);
     }
     
+    
+    //NotifyDonation
+    [Fact]
+    public async Task Get_notify_donation_details_success()
+    {
+      PolenApi polenApiDetail = new PolenApi("3bb9af43-8120-41c0-ae69-f3a4de223a81");
+      var actionResult = await polenApiDetail.NotifyDonation.GetNotifyDonationDetails("720d4121-0af9-4e3d-b55c-e7c6f0729a35", null, "1181982467316");
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
+    
+    [Theory]
+    [InlineData("30cc3743-a457-43ac-aa7c-a2bf7cdf674a")]
+    public async Task Get_notify_donation_list_success(string storeId)
+    {
+      var actionResult = await PolenApi.NotifyDonation.GetNotifyDonationList(storeId);
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
+    
+    [Theory]
+    [InlineData("30cc3743-a457-43ac-aa7c-a2bf7cdf674a", "36f222b4-57c1-418f-a4e9-4f96c5dd1f76")]
+    public async Task Post_create_notify_donation_success(string storeId, string companyId)
+    {
+      NotifyDonationModel notifyDonationModel = new NotifyDonationModel();
+      notifyDonationModel.OrderId = "TESTEPOLEN123";
+      notifyDonationModel.Donation = 1;
+      notifyDonationModel.UserDonation = 0;
+      notifyDonationModel.UserId = "TESTEUSER123";
+      notifyDonationModel.Tags = null;
+      notifyDonationModel.StoreName = null;
+      notifyDonationModel.StoreUrl = null;
+      notifyDonationModel.Currency = null;
+      notifyDonationModel.Purchase = 0;
+      notifyDonationModel.NgoId = null;
+      notifyDonationModel.UserEmail = null;
+      notifyDonationModel.UserPhone = null;
+      notifyDonationModel.UserDocument = null;
+      notifyDonationModel.UserGender = null;
+      notifyDonationModel.UserBirthDate = null;
+      notifyDonationModel.UserName = null;
+      notifyDonationModel.City = null;
+      notifyDonationModel.State = null;
+      notifyDonationModel.Country = null;
+      notifyDonationModel.PaymentMethod = null;
+      notifyDonationModel.Notes = null;
+      notifyDonationModel.Status = 0;
+      notifyDonationModel.CreateAt = null;
+      notifyDonationModel.Test = true;
+
+      var actionResult = await PolenApi.NotifyDonation.CreateNotifyDonation(storeId, companyId, notifyDonationModel);
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
+    
+    [Theory]
+    [InlineData("30cc3743-a457-43ac-aa7c-a2bf7cdf674a")]
+    public async Task Update_notify_donation_success(string storeId)
+    {
+      NotifyDonationUpdate notifyDonationUpdate = new NotifyDonationUpdate();
+      notifyDonationUpdate.OrderId = "TESTEPOLEN123";
+      notifyDonationUpdate.Status = 2;
+      notifyDonationUpdate.PolenTransactionId = null;
+      
+      var actionResult = await PolenApi.NotifyDonation.UpdateNotifyDonation(storeId, notifyDonationUpdate);
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
   }
 }
 
