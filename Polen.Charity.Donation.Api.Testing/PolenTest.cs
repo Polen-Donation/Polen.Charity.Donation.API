@@ -240,6 +240,23 @@ namespace Polen.Charity.Donation.Api.Testing
       var viewResult = Assert.IsType<string>(actionResult);
       Assert.IsAssignableFrom<string>(viewResult);
     }
+    
+    //Store
+    [Fact]
+    public async Task Get_store_detail_success()
+    {
+      var actionResult = await PolenApi.Store.GetStoreDetail("30cc3743-a457-43ac-aa7c-a2bf7cdf674a");
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
+    
+    [Fact]
+    public async Task Get_store_list_success()
+    {
+      var actionResult = await PolenApi.Store.GetStoreList();
+      var viewResult = Assert.IsType<string>(actionResult);
+      Assert.IsAssignableFrom<string>(viewResult);
+    }
   }
 }
 
