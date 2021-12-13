@@ -3,9 +3,19 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <PackageId>Polen.Charity.Donation.Api</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.2</Version>
         <Authors>Polen</Authors>
         <Company>Polen</Company>
+        <Product>Polen.Charity.Donation.Api</Product>
+        <Description>Polen.Charity.Donation.Api é uma API completa e rapida para doações</Description>
+        <Title>Polen.Charity.Donation.Api</Title>
+        <icon>logo-polen-vertical.png</icon>
+        <readme>..\README.md</readme>
+        <PackageIconUrl>https://polen.com.br/content/v6/images/logo-polen-vertical.svg</PackageIconUrl>
+        <PackageProjectUrl>https://dev.polen.com.br/docs/</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
